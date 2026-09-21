@@ -3,400 +3,436 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Suhaimi IT Infrastructure & Web Services — server, web server, website, web application and managed IT services.">
-  <title>SUHAIMI.IT — IT Infrastructure & Web Services</title>
+  <meta name="description" content="SUHAIMI.IT — practical IT infrastructure and web engineering for businesses.">
+  <title>SUHAIMI.IT — Technology that works</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23071b2b'/%3E%3Cpath d='M22 70 50 20l28 50H62l-12-24L38 70z' fill='%2365e6ff'/%3E%3C/svg%3E">
   <style>
     :root {
-      --paper: #f4efe8;
-      --paper-2: #efe6dc;
-      --ink: #111820;
-      --muted: #606d7a;
-      --line: #d9d0c6;
-      --orange: #f15e3d;
-      --orange-soft: #ffab93;
-      --navy: #11263d;
-      --navy-2: #0d1d2d;
-      --card: #ffffff;
-      --shadow: 0 24px 64px rgba(17,24,32,.08);
-      --max: 1200px;
+      --bg: #07101b;
+      --bg-2: #0d1d2c;
+      --panel: #0d1a2a;
+      --panel-2: #0f2436;
+      --line: rgba(255,255,255,.12);
+      --text: #edf6ff;
+      --muted: #9bb0c3;
+      --cyan: #65e6ff;
+      --green: #b8ffce;
+      --orange: #ff905f;
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
+      --radius: 24px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(101, 230, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, #07101b 0%, #091823 100%);
+      color: var(--text);
+      font: 16px/1.65 Inter, "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
     }
-
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 26px; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 50;
-      background: rgba(244,239,232,.88);
+      background: rgba(7,16,27,.72);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(17,24,32,.08);
+      border-bottom: 1px solid var(--line);
     }
-
     .nav {
-      height: 76px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
     }
-
-    .brand {
-      font-size: 1.32rem;
+    .logo {
       font-weight: 950;
-      letter-spacing: -.07em;
+      letter-spacing: .08em;
+      font-size: 1.05rem;
     }
-    .brand b { color: var(--orange); }
-
+    .logo i { color: var(--cyan); font-style: normal; }
     .navlinks {
       display: flex;
       align-items: center;
       gap: 24px;
-      font-size: .82rem;
-      font-weight: 800;
-      color: #2a3540;
+      font-size: .88rem;
+      color: var(--muted);
     }
-    .navlinks a:hover { color: var(--orange); }
-
+    .navlinks a:hover, .email:hover { color: var(--cyan); }
     .langs {
       display: flex;
+      align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
     }
     .lang {
       border: 1px solid var(--line);
-      border-radius: 999px;
       background: transparent;
-      color: var(--ink);
-      padding: 6px 9px;
+      color: var(--muted);
+      font: inherit;
+      border-radius: 999px;
+      padding: 6px 10px;
       cursor: pointer;
-      font-size: .68rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-      transition: .18s ease;
+      transition: .2s ease;
     }
     .lang.active {
-      background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
+      background: var(--cyan);
+      color: #06131f;
+      border-color: var(--cyan);
     }
 
     section {
-      padding: 115px 0 90px;
-      border-bottom: 1px solid var(--line);
+      padding: 120px 0 90px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-
     .hero {
-      padding-top: 165px;
       min-height: 100vh;
-      background: linear-gradient(180deg, var(--paper), #f8f4ee);
+      display: flex;
+      align-items: center;
+      padding-top: 165px;
+      background:
+        radial-gradient(circle at 75% 18%, rgba(101, 230, 255, 0.18), transparent 28%),
+        linear-gradient(145deg, #07101b 0%, #0b1d2c 100%);
     }
-
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 58px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 60px;
       align-items: center;
     }
-
-    .kicker {
-      color: var(--orange);
-      font-size: .74rem;
+    .eyebrow {
+      color: var(--green);
       font-weight: 900;
-      letter-spacing: .15em;
+      letter-spacing: .16em;
       text-transform: uppercase;
+      font-size: .72rem;
     }
-
     h1 {
-      margin: 18px 0 18px;
-      font-size: clamp(3.5rem, 7vw, 7.7rem);
-      line-height: .86;
-      letter-spacing: -.1em;
+      margin: 18px 0 20px;
+      font-size: clamp(3.2rem, 7vw, 7rem);
+      line-height: .88;
+      letter-spacing: -.08em;
     }
-
+    h2 {
+      margin: 12px 0 18px;
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+    }
     .lead {
-      font-size: 1.12rem;
+      max-width: 660px;
       color: var(--muted);
-      max-width: 640px;
+      font-size: 1.08rem;
     }
-
-    .cta-row {
+    .actions {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      gap: 12px;
+      margin-top: 30px;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 20px;
-      border-radius: 999px;
-      border: 1px solid var(--ink);
+      padding: 14px 20px;
+      border-radius: 14px;
       font-weight: 900;
-      transition: .2s ease;
+      transition: .25s ease;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn.primary {
-      background: var(--orange);
-      border-color: var(--orange);
-      color: #fff;
+    .btn:hover { transform: translateY(-3px); }
+    .primary {
+      background: var(--cyan);
+      color: #07151f;
     }
-    .btn.secondary {
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .reference {
-      max-width: 560px;
-      margin-left: auto;
+    .ghost {
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      color: var(--text);
     }
 
-    .reference-card {
+    .hero-visual {
       position: relative;
-      padding: 16px;
-      background: #d9d1c9;
-      border: 1px solid var(--ink);
-      box-shadow: 18px 18px 0 var(--orange);
-      transform: rotate(2deg);
+      min-height: 520px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: float 7s ease-in-out infinite;
     }
-    .reference-card img {
+    .hero-visual img {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      height: 100%;
+      min-height: 520px;
       object-fit: cover;
-      background: #101a26;
+      filter: saturate(.9) contrast(1.08);
+    }
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,16,27,.08), rgba(7,16,27,.9));
+    }
+    .hero-badge {
+      position: absolute;
+      z-index: 2;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      padding: 18px 20px;
+      background: rgba(7,16,27,.72);
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+    }
+    .hero-badge strong {
+      display: block;
+      color: var(--cyan);
+      font-size: 1.1rem;
+    }
+    .hero-badge span {
+      color: #dceaf7;
+      font-size: .86rem;
     }
 
-    .reference-caption {
-      padding-top: 14px;
-      font-size: .72rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-weight: 900;
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .stat {
+      min-width: 120px;
+    }
+    .stat b {
+      display: block;
+      color: var(--green);
+      font-size: 1.7rem;
+      line-height: 1.1;
+    }
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: .78rem;
     }
 
     .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 26px;
+      max-width: 760px;
     }
-    .section-head h2 {
-      margin: 12px 0 0;
-      font-size: clamp(2.6rem, 5vw, 5rem);
-      line-height: .92;
-      letter-spacing: -.08em;
-    }
-    .section-head p {
-      margin: 0;
-      max-width: 360px;
-      color: var(--muted);
-    }
-
     .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 42px;
+      gap: 18px;
+      margin-top: 34px;
     }
-
     .card {
-      background: var(--card);
+      position: relative;
+      background: linear-gradient(145deg, #0d1c2d 0%, #0b1624 100%);
       border: 1px solid var(--line);
-      padding: 30px 24px;
-      min-height: 220px;
-      box-shadow: var(--shadow);
-      transition: .2s ease;
+      border-radius: var(--radius);
+      padding: 26px 24px;
+      overflow: hidden;
+      transition: .25s ease;
+      box-shadow: 0 10px 40px rgba(0,0,0,.18);
     }
     .card:hover {
-      border-color: var(--orange);
-      transform: translateY(-4px);
+      transform: translateY(-7px);
+      border-color: rgba(101,230,255,.8);
+      box-shadow: 0 18px 55px rgba(101,230,255,.08);
     }
-
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(101,230,255,.09);
+      border: 1px solid rgba(101,230,255,.35);
+      color: var(--cyan);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
     .num {
-      font-size: .74rem;
+      color: var(--green);
+      font-size: .72rem;
       font-weight: 900;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--orange);
     }
     .card h3 {
-      margin: 24px 0 10px;
-      font-size: 1.35rem;
-      line-height: 1.2;
+      margin: 12px 0 8px;
+      font-size: 1.28rem;
     }
     .small {
       color: var(--muted);
       font-size: .92rem;
     }
 
-    .packages {
-      background: var(--navy);
-      color: #edf5ff;
-      border-bottom: none;
+    .solutions {
+      background: linear-gradient(180deg, rgba(10,22,30,.8), rgba(7,16,27,.9));
     }
-    .packages .kicker,
-    .packages .small,
-    .packages .section-head p,
-    .packages .price {
-      color: #cedbeb;
+    .solution-image {
+      height: 150px;
+      margin: -26px -24px 18px;
+      overflow: hidden;
     }
-    .packages .card {
-      background: transparent;
-      border-color: rgba(255,255,255,.25);
-      box-shadow: none;
+    .solution-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.8);
     }
-    .packages .card:hover { border-color: var(--orange); }
-    .packages .num,
-    .packages .price,
-    .packages .card h3 {
-      color: #fff;
+    .featured {
+      background: linear-gradient(145deg, #112c3f, #0d1825);
+      border-color: rgba(101,230,255,.48);
     }
     .price {
       margin-top: 18px;
-      font-size: .82rem;
+      color: var(--green);
       font-weight: 900;
-      letter-spacing: .1em;
+      letter-spacing: .06em;
       text-transform: uppercase;
+      font-size: .76rem;
     }
 
-    .quote {
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: 1;
-      letter-spacing: -.06em;
-      max-width: 980px;
-      margin: 32px 0 16px;
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+    }
+    .step {
+      padding: 22px 16px;
+      border-top: 2px solid var(--cyan);
+      background: rgba(255,255,255,.02);
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .step b {
+      display: block;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
 
     .contact-wrap {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 54px;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 38px;
       align-items: start;
     }
-    .contact-wrap h2 {
-      margin: 14px 0 18px;
-      font-size: clamp(2.8rem, 5vw, 5.5rem);
-      line-height: .9;
-      letter-spacing: -.08em;
+    .panel {
+      background: linear-gradient(145deg, #0d1c2d, #0b1724);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
-
-    .email {
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 1.05rem;
-      font-weight: 900;
-      color: var(--orange);
-    }
-
-    form {
+    .form {
       display: grid;
       gap: 12px;
     }
-    .field {
-      display: grid;
-      gap: 6px;
-    }
     label {
-      font-size: .72rem;
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 800;
       letter-spacing: .12em;
       text-transform: uppercase;
-      font-weight: 900;
-      color: var(--muted);
     }
     input, select, textarea {
       width: 100%;
-      padding: 14px;
+      background: rgba(7,16,27,.8);
       border: 1px solid var(--line);
-      background: white;
-      color: var(--ink);
+      border-radius: 12px;
+      padding: 13px 14px;
+      color: var(--text);
       font: inherit;
-      border-radius: 0;
     }
-    button.submit {
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .send {
+      margin-top: 8px;
       border: 0;
-      background: var(--orange);
-      color: #fff;
-      padding: 15px 18px;
+      background: var(--cyan);
+      color: #07151f;
+      border-radius: 12px;
+      padding: 14px 18px;
       font-weight: 900;
       cursor: pointer;
+    }
+    .email {
+      display: inline-block;
+      color: var(--cyan);
+      font-weight: 900;
+      margin-top: 18px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: .7s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: none;
     }
 
     footer {
       padding: 30px 0 36px;
-      font-size: .78rem;
       color: var(--muted);
+      font-size: .8rem;
     }
 
-    [dir="rtl"] {
-      font-family: Tahoma, Arial, sans-serif;
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-    [dir="rtl"] .quote { direction: rtl; }
 
     @media (max-width: 900px) {
-      .hero-grid,
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
-      .section-head {
-        display: block;
-      }
-      .navlinks { display: none; }
+      .hero-grid, .contact-wrap { grid-template-columns: 1fr; }
       .cards { grid-template-columns: 1fr 1fr; }
-      .reference { margin: 0 auto; }
-      .hero { padding-top: 150px; }
+      .process { grid-template-columns: 1fr 1fr; }
+      .navlinks { display: none; }
+      .hero-visual, .hero-visual img { min-height: 380px; }
     }
 
     @media (max-width: 560px) {
       .wrap { padding: 0 18px; }
-      .cards { grid-template-columns: 1fr; }
+      .cards, .process { grid-template-columns: 1fr; }
+      .actions { display: grid; }
       .btn { width: 100%; }
-      .cta-row { display: grid; }
-      .reference-card { box-shadow: 12px 12px 0 var(--orange); }
+      .langs { margin-left: auto; }
+      .hero-visual { min-height: 320px; }
     }
   </style>
-  
-      <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5V8KCBNEG5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5V8KCBNEG5');
-</script>
-<!-- End Google Analytics -->
-    
-  
-  
 </head>
 <body>
   <nav>
     <div class="wrap nav">
-      <a class="brand" href="#home">SUHAIMI<b>.</b>IT</a>
+      <a class="logo" href="#home">SUHAIMI<i>.IT</i></a>
       <div class="navlinks">
-        <a href="#services" data-t="nav1">Services</a>
-        <a href="#packages" data-t="nav2">Packages</a>
-        <a href="#about" data-t="nav3">Approach</a>
-        <a href="#contact" data-t="nav4">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="langs" aria-label="Language switcher">
-        <button class="lang active" data-lang="en">EN</button>
-        <button class="lang" data-lang="ja">JP</button>
-        <button class="lang" data-lang="my">MY</button>
-        <button class="lang" data-lang="ar">AR</button>
+      <div class="langs" aria-label="Language selector">
+        <button class="lang active" type="button">EN</button>
+        <button class="lang" type="button">MY</button>
       </div>
     </div>
   </nav>
@@ -404,125 +440,187 @@
   <main>
     <section id="home" class="hero">
       <div class="wrap hero-grid">
-        <div>
-          <div class="kicker" data-t="kicker">Independent IT • Infrastructure • Web Engineering</div>
-          <h1 data-t="hero">Technology that works.</h1>
-          <p class="lead" data-t="heroLead">Server builds, web infrastructure, websites, web applications, migration and support — designed around what your business actually needs.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#contact" data-t="cta">Discuss your project →</a>
-            <a class="btn secondary" href="#services" data-t="view">View services</a>
+        <div class="reveal">
+          <div class="eyebrow">Independent IT • Infrastructure • Web Engineering</div>
+          <h1>Technology that works.</h1>
+          <p class="lead">Server builds, web infrastructure, websites, web applications, migration and support — designed around what your business actually needs.</p>
+
+          <div class="actions">
+            <a class="btn primary" href="#contact">Discuss your project →</a>
+            <a class="btn ghost" href="#services">Explore services</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <b>20+</b>
+              <span>years IT experience</span>
+            </div>
+            <div class="stat">
+              <b>4</b>
+              <span>languages</span>
+            </div>
+            <div class="stat">
+              <b>1</b>
+              <span>clear partner</span>
+            </div>
           </div>
         </div>
 
-        <div class="reference">
-          <div class="reference-card">
-            <img src="file_00000000bdac8208996088e80ecc6a20.png" alt="SUHAIMI.IT visual reference">
+        <div class="hero-visual reveal">
+          <img src="file_00000000bdac8208996088e80ecc6a20.png" alt="Abstract SUHAIMI.IT technology visualization">
+          <div class="hero-badge">
+            <strong>Build. Connect. Improve.</strong>
+            <span>Practical technology for real-world teams.</span>
           </div>
-          <div class="reference-caption" data-t="visualCaption">SUHAIMI.IT / visual direction v4</div>
         </div>
       </div>
     </section>
 
     <section id="services">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="kicker" data-t="servicesEye">What I can build</div>
-            <h2 data-t="servicesTitle">From one server to a complete digital system.</h2>
-          </div>
-          <p data-t="servicesLead">Focused technical work, clear scope and practical delivery for SMEs and projects.</p>
+        <div class="section-head reveal">
+          <div class="eyebrow">What I can build</div>
+          <h2>From one server to a complete digital system.</h2>
+          <p class="lead">Focused technical work, clear scope and practical delivery for SMEs and projects.</p>
         </div>
 
         <div class="cards">
-          <article class="card">
+          <article class="card reveal">
+            <div class="icon">▣</div>
             <div class="num">01</div>
-            <h3 data-t="s1">Server Engineering</h3>
-            <p class="small" data-t="d1">Windows/Linux, Active Directory, DNS, DHCP, file services, virtualisation and hardening.</p>
+            <h3>Server Engineering</h3>
+            <p class="small">Windows/Linux, Active Directory, DNS, DHCP, file services, virtualisation and hardening.</p>
           </article>
-          <article class="card">
+
+          <article class="card reveal">
+            <div class="icon">◎</div>
             <div class="num">02</div>
-            <h3 data-t="s2">Web Infrastructure</h3>
-            <p class="small" data-t="d2">Hosting, domains, SSL, Nginx/Apache, reverse proxy, PHP, databases and deployment.</p>
+            <h3>Web Infrastructure</h3>
+            <p class="small">Hosting, domains, SSL, Nginx/Apache, reverse proxy, PHP, databases and deployment.</p>
           </article>
-          <article class="card">
+
+          <article class="card reveal">
+            <div class="icon">▤</div>
             <div class="num">03</div>
-            <h3 data-t="s3">Business Website</h3>
-            <p class="small" data-t="d3">Fast responsive websites, landing pages, company profiles, multilingual pages and analytics.</p>
+            <h3>Business Website</h3>
+            <p class="small">Fast responsive websites, landing pages, company profiles, multilingual pages and analytics.</p>
           </article>
-          <article class="card">
+
+          <article class="card reveal">
+            <div class="icon">&lt;/&gt;</div>
             <div class="num">04</div>
-            <h3 data-t="s4">Web Application</h3>
-            <p class="small" data-t="d4">Custom portals, forms, dashboards, workflows, APIs and database-driven systems.</p>
+            <h3>Web Application</h3>
+            <p class="small">Custom portals, forms, dashboards, workflows, APIs and database-driven systems.</p>
           </article>
-          <article class="card">
+
+          <article class="card reveal">
+            <div class="icon">↗</div>
             <div class="num">05</div>
-            <h3 data-t="s5">Migration & Recovery</h3>
-            <p class="small" data-t="d5">Server migration, DNS changes, application moves, backup/restore planning and troubleshooting.</p>
+            <h3>Migration & Recovery</h3>
+            <p class="small">Server migration, DNS changes, application moves, backup/restore planning and troubleshooting.</p>
           </article>
-          <article class="card">
+
+          <article class="card reveal">
+            <div class="icon">◉</div>
             <div class="num">06</div>
-            <h3 data-t="s6">Managed Support</h3>
-            <p class="small" data-t="d6">Remote troubleshooting, patching, monitoring, documentation and scheduled support.</p>
+            <h3>Managed Support</h3>
+            <p class="small">Remote troubleshooting, patching, monitoring, documentation and scheduled support.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="packages" class="packages">
+    <section id="solutions" class="solutions">
       <div class="wrap">
-        <div class="kicker" data-t="packEye">Project packages</div>
-        <div class="section-head" style="margin-top:12px;">
-          <h2 data-t="packTitle">Start small.<br>Scale when needed.</h2>
-          <p data-t="packLead">No unnecessary package lock-in. The final quotation follows your actual requirement.</p>
+        <div class="section-head reveal">
+          <div class="eyebrow">Project packages</div>
+          <h2>Start small. Scale when needed.</h2>
         </div>
 
         <div class="cards">
-          <article class="card">
-            <div class="num">A</div>
-            <h3 data-t="p1">START</h3>
-            <p class="small" data-t="p1d">One focused task: server setup, website, domain/SSL, backup or troubleshooting.</p>
-            <div class="price" data-t="price1">Quote by scope</div>
+          <article class="card reveal">
+            <div class="solution-image">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" alt="Server racks">
+            </div>
+            <div class="num">A / START</div>
+            <h3>One focused task</h3>
+            <p class="small">Server setup, website, domain/SSL, backup or troubleshooting.</p>
+            <div class="price">Quote by scope</div>
           </article>
-          <article class="card">
-            <div class="num">B</div>
-            <h3 data-t="p2">BUSINESS</h3>
-            <p class="small" data-t="p2d">Website, hosting, SSL, domain guidance, analytics and basic documentation.</p>
-            <div class="price" data-t="price2">Clear plan first</div>
+
+          <article class="card featured reveal">
+            <div class="solution-image">
+              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80" alt="Business team collaborating">
+            </div>
+            <div class="num">B / BUSINESS</div>
+            <h3>A clearer digital presence</h3>
+            <p class="small">Website, hosting, SSL, analytics and basic documentation.</p>
+            <div class="price">Clear plan first</div>
           </article>
-          <article class="card">
-            <div class="num">C</div>
-            <h3 data-t="p3">SYSTEM</h3>
-            <p class="small" data-t="p3d">Server, network services, backup, security baseline, documentation and support.</p>
-            <div class="price" data-t="price3">Project solution</div>
+
+          <article class="card reveal">
+            <div class="solution-image">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Computer hardware close-up">
+            </div>
+            <div class="num">C / SYSTEM</div>
+            <h3>A connected system</h3>
+            <p class="small">Server, network services, backup, security baseline and support.</p>
+            <div class="price">Project solution</div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="process">
       <div class="wrap">
-        <div class="kicker" data-t="aboutEye">The approach</div>
-        <p class="quote" data-t="quote">Good IT service is not only about technology. It is about understanding what the customer is trying to achieve, explaining the trade-offs clearly and keeping the system practical and stable.</p>
-        <p class="lead" data-t="aboutLead">Four languages. Different communication cultures. One commitment: useful technology with clear communication.</p>
+        <div class="section-head reveal">
+          <div class="eyebrow">How it works</div>
+          <h2>Simple, transparent, practical.</h2>
+        </div>
+
+        <div class="process">
+          <div class="step reveal"><b>01</b>Tell me the problem</div>
+          <div class="step reveal"><b>02</b>Review the scope</div>
+          <div class="step reveal"><b>03</b>Build the solution</div>
+          <div class="step reveal"><b>04</b>Support and improve</div>
+        </div>
       </div>
     </section>
 
     <section id="contact">
       <div class="wrap contact-wrap">
-        <div>
-          <div class="kicker" data-t="contactEye">Project inquiry</div>
-          <h2 data-t="contactTitle">Let's make it work.</h2>
-          <p class="lead" data-t="contactLead">Tell me your current situation, target result and preferred timeline. I will review the scope and reply by email.</p>
+        <div class="reveal">
+          <div class="eyebrow">Project inquiry</div>
+          <h2>Let's make it work.</h2>
+          <p class="lead">Tell me your current situation, target result and preferred timeline. I will review the scope and reply by email.</p>
           <a class="email" href="mailto:bitsuhami@gmail.com">bitsuhami@gmail.com</a>
         </div>
 
-        <div class="card">
-          <form action="mailto:bitsuhami@gmail.com" method="post" enctype="text/plain">
-            <div class="field"><label data-t="name">Name</label><input name="name" required></div>
-            <div class="field"><label data-t="email">Email</label><input type="email" name="email" required></div>
-            <div class="field"><label data-t="service">Service needed</label><select name="service"><option>Server / Infrastructure</option><option>Web Server / Hosting</option><option>Website</option><option>Web Application</option><option>Migration / Recovery</option><option>Maintenance & Support</option></select></div>
-            <div class="field"><label data-t="message">Requirement</label><textarea name="message" rows="5" required></textarea></div>
-            <button class="submit" type="submit" data-t="send">Send inquiry</button>
+        <div class="panel reveal">
+          <form class="form" action="mailto:bitsuhami@gmail.com" method="post" enctype="text/plain">
+            <div>
+              <label>Name</label>
+              <input name="name" required>
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" name="email" required>
+            </div>
+            <div>
+              <label>Service needed</label>
+              <select name="service">
+                <option>Server / Infrastructure</option>
+                <option>Web Server / Hosting</option>
+                <option>Website</option>
+                <option>Web Application</option>
+                <option>Migration / Support</option>
+              </select>
+            </div>
+            <div>
+              <label>Requirement</label>
+              <textarea name="message" required></textarea>
+            </div>
+            <button class="send" type="submit">Send inquiry →</button>
           </form>
         </div>
       </div>
@@ -530,137 +628,32 @@
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> SUHAIMI.IT · <span data-t="footer">Independent IT Infrastructure & Web Engineering</span></div>
+    <div class="wrap">© <span id="year"></span> SUHAIMI.IT · Independent IT Infrastructure & Web Engineering</div>
   </footer>
 
   <script>
-    const T = {
-      en: {
-        nav1: 'Services', nav2: 'Packages', nav3: 'Approach', nav4: 'Contact',
-        kicker: 'Independent IT • Infrastructure • Web Engineering',
-        hero: 'Technology that works.',
-        heroLead: 'Server builds, web infrastructure, websites, web applications, migration and support — designed around what your business actually needs.',
-        cta: 'Discuss your project →',
-        view: 'View services',
-        visualCaption: 'SUHAIMI.IT / visual direction v4',
-        servicesEye: 'What I can build',
-        servicesTitle: 'From one server to a complete digital system.',
-        servicesLead: 'Focused technical work, clear scope and practical delivery for SMEs and projects.',
-        s1: 'Server Engineering', d1: 'Windows/Linux, Active Directory, DNS, DHCP, file services, virtualisation and hardening.',
-        s2: 'Web Infrastructure', d2: 'Hosting, domains, SSL, Nginx/Apache, reverse proxy, PHP, databases and deployment.',
-        s3: 'Business Website', d3: 'Fast responsive websites, landing pages, company profiles, multilingual pages and analytics.',
-        s4: 'Web Application', d4: 'Custom portals, forms, dashboards, workflows, APIs and database-driven systems.',
-        s5: 'Migration & Recovery', d5: 'Server migration, DNS changes, application moves, backup/restore planning and troubleshooting.',
-        s6: 'Managed Support', d6: 'Remote troubleshooting, patching, monitoring, documentation and scheduled support.',
-        packEye: 'Project packages',
-        packTitle: 'Start small. Scale when needed.',
-        packLead: 'No unnecessary package lock-in. The final quotation follows your actual requirement.',
-        p1: 'START', p1d: 'One focused task: server setup, website, domain/SSL, backup or troubleshooting.', price1: 'Quote by scope',
-        p2: 'BUSINESS', p2d: 'Website, hosting, SSL, domain guidance, analytics and basic documentation.', price2: 'Clear plan first',
-        p3: 'SYSTEM', p3d: 'Server, network services, backup, security baseline, documentation and support.', price3: 'Project solution',
-        aboutEye: 'The approach',
-        quote: 'Good IT service is not only about technology. It is about understanding what the customer is trying to achieve, explaining the trade-offs clearly and keeping the system practical and stable.',
-        aboutLead: 'Four languages. Different communication cultures. One commitment: useful technology with clear communication.',
-        contactEye: 'Project inquiry',
-        contactTitle: "Let's make it work.",
-        contactLead: 'Tell me your current situation, target result and preferred timeline. I will review the scope and reply by email.',
-        name: 'Name', email: 'Email', service: 'Service needed', message: 'Requirement', send: 'Send inquiry',
-        footer: 'Independent IT Infrastructure & Web Engineering'
-      },
-      ja: {
-        nav1: 'サービス', nav2: 'パッケージ', nav3: 'アプローチ', nav4: 'お問い合わせ',
-        kicker: '独立系IT • インフラ • Webエンジニアリング',
-        hero: '技術は実用に効く。',
-        heroLead: 'サーバー構築、Web基盤、Webサイト、Webアプリ、移行、保守を、実際のビジネスに合わせて設計します。',
-        cta: 'プロジェクトを相談する →', view: 'サービスを見る', visualCaption: 'SUHAIMI.IT / ビジュアル方向性 v4',
-        servicesEye: '対応可能なこと', servicesTitle: '1台のサーバーから、統合的なデジタル基盤まで。', servicesLead: '明確な範囲と実務ベースの実装で、中小企業とプロジェクトを支えます。',
-        s1: 'サーバー構築', s2: 'Web基盤', s3: '企業サイト', s4: 'Webアプリ', s5: '移行・復旧', s6: '保守サポート',
-        d1: 'Windows/Linux、Active Directory、DNS、DHCP、ファイルサービス、仮想化とセキュリティ強化。',
-        d2: 'ホスティング、ドメイン、SSL、Nginx/Apache、リバースプロキシ、PHP、DB、デプロイ。',
-        d3: '高速レスポンシブWebサイト、LP、会社紹介、マルチリンガル対応、分析導入。',
-        d4: '各種ポータル、フォーム、ダッシュボード、ワークフロー、API、DB連携システム。',
-        d5: 'サーバー移行、DNS変更、アプリ移動、バックアップ/復元計画、障害対応。',
-        d6: 'リモート障害対応、パッチ適用、監視、ドキュメント化、定期保守。',
-        packEye: 'プロジェクトパッケージ', packTitle: '小さく始めて。必要になったら拡張。', packLead: '不要な固定パッケージは避け、実際の要件に合わせて見積もりを作成します。',
-        p1: 'START', p1d: '1つの作業から開始：サーバー構築、サイト、ドメイン/SSL、バックアップ、トラブル対応。', price1: '範囲ベース見積',
-        p2: 'BUSINESS', p2d: 'Webサイト、ホスティング、SSL、ドメイン支援、分析、基本ドキュメント。', price2: '明確な計画から開始',
-        p3: 'SYSTEM', p3d: 'サーバー、ネットワーク、バックアップ、セキュリティ基盤、ドキュメント、保守。', price3: 'プロジェクト型ソリューション',
-        aboutEye: 'アプローチ',
-        quote: '良いITサービスは技術だけではありません。顧客が何を達成したいのかを理解し、選択肢を分かりやすく伝え、システムを実務的かつ安定した状態で保つことです。',
-        aboutLead: '4言語、異なるコミュニケーション文化。ひとつの使命は、使える技術と明確な伝達を両立すること。',
-        contactEye: 'プロジェクトお問い合わせ', contactTitle: '一緒に実現しましょう。', contactLead: '現状、目標、希望時期をお知らせください。範囲を確認し、メールでご返信します。',
-        name: 'お名前', email: 'メールアドレス', service: '必要なサービス', message: '要件', send: 'お問い合わせを送信',
-        footer: '独立系ITインフラ・Webエンジニアリング'
-      },
-      my: {
-        nav1: 'Servis', nav2: 'Pakej', nav3: 'Pendekatan', nav4: 'Hubungi',
-        kicker: 'IT Bebas • Infrastruktur • Kejuruteraan Web', hero: 'Teknologi yang berfungsi.', heroLead: 'Bina server, infrastruktur web, website, aplikasi web, migrasi dan sokongan — mengikut keperluan sebenar perniagaan anda.', cta: 'Bincang projek anda →', view: 'Lihat servis', visualCaption: 'SUHAIMI.IT / arah visual v4',
-        servicesEye: 'Apa yang boleh dibina', servicesTitle: 'Daripada satu server kepada sistem digital lengkap.', servicesLead: 'Kerja teknikal yang fokus, skop jelas dan penyampaian praktikal untuk SME dan projek.',
-        s1: 'Kejuruteraan Server', s2: 'Infrastruktur Web', s3: 'Website Perniagaan', s4: 'Aplikasi Web', s5: 'Migrasi & Pemulihan', s6: 'Sokongan Terurus',
-        d1: 'Windows/Linux, Active Directory, DNS, DHCP, perkhidmatan fail, virtualisasi dan pengukuhan keselamatan.',
-        d2: 'Hosting, domain, SSL, Nginx/Apache, reverse proxy, PHP, pangkalan data dan deployment.',
-        d3: 'Website responsif pantas, landing page, profil syarikat, halaman berbilang bahasa dan analitik.',
-        d4: 'Portal khas, borang, dashboard, aliran kerja, API dan sistem berasaskan pangkalan data.',
-        d5: 'Migrasi server, perubahan DNS, pemindahan aplikasi, perancangan backup/restore dan troubleshooting.',
-        d6: 'Penyelesaian masalah jauh, patching, pemantauan, dokumentasi dan sokongan berjadual.',
-        packEye: 'Pakej projek', packTitle: 'Mula kecil. Besarkan bila perlu.', packLead: 'Tiada pakej mengikat. Sebutharga akhir mengikut keperluan sebenar anda.',
-        p1: 'MULA', p1d: 'Satu tugasan fokus: bina server, website, domain/SSL, backup atau troubleshooting.', price1: 'Sebutharga ikut skop',
-        p2: 'PERNIAGAAN', p2d: 'Website, hosting, SSL, panduan domain, analitik dan dokumentasi asas.', price2: 'Rancangan jelas dahulu',
-        p3: 'SISTEM', p3d: 'Server, perkhidmatan rangkaian, backup, dasar keselamatan, dokumentasi dan sokongan.', price3: 'Penyelesaian berasaskan projek',
-        aboutEye: 'Pendekatan',
-        quote: 'Perkhidmatan IT yang baik bukan hanya mengenai teknologi. Ia tentang memahami apa yang pelanggan cuba capai, menerangkan pertukaran keputusan dengan jelas dan memastikan sistem itu praktikal serta stabil.',
-        aboutLead: 'Empat bahasa. Budaya komunikasi yang berbeza. Satu komitmen: teknologi berguna dengan komunikasi yang jelas.',
-        contactEye: 'Pertanyaan projek', contactTitle: 'Mari jadikan ia berfungsi.', contactLead: 'Beritahu keadaan semasa, hasil sasaran dan tempoh yang dikehendaki. Saya akan semak skop dan balas melalui e-mel.',
-        name: 'Nama', email: 'E-mel', service: 'Perkhidmatan yang diperlukan', message: 'Keperluan', send: 'Hantar pertanyaan',
-        footer: 'Infrastruktur IT & Kejuruteraan Web Bebas'
-      },
-      ar: {
-        nav1: 'الخدمات', nav2: 'الباقات', nav3: 'النهج', nav4: 'تواصل',
-        kicker: 'تقنية مستقلة • بنية تحتية • هندسة الويب', hero: 'التقنية التي تعمل.', heroLead: 'بناء الخوادم، بنية الويب، المواقع، التطبيقات، النقل، والدعم — مصممة حسب احتياجات عملك الحقيقية.', cta: 'مناقشة المشروع →', view: 'عرض الخدمات', visualCaption: 'SUHAIMI.IT / اتجاه بصري v4',
-        servicesEye: 'ما الذي يمكنني بناؤه', servicesTitle: 'من خادم واحد إلى نظام رقمي كامل.', servicesLead: 'عمل تقني مركّز، نطاق واضح، وتقديم عملي للشركات الصغيرة والمشروعات.',
-        s1: 'هندسة الخادم', s2: 'بنية الويب', s3: 'موقع الأعمال', s4: 'تطبيق الويب', s5: 'النقل والاستعادة', s6: 'الدعم المُدار',
-        d1: 'Windows/Linux، Active Directory، DNS، DHCP، خدمات الملفات، المحاكاة، وتعزيز الأمان.',
-        d2: 'الاستضافة، النطاقات، SSL، Nginx/Apache، ال reverse proxy، PHP، قواعد البيانات، والنشر.',
-        d3: 'مواقع سريعة ومتجاوبة، صفحات هبوط، ملفات الشركة، صفحات متعددة اللغات، وتحليلات.',
-        d4: 'بوابات مخصصة، نماذج، لوحات معلومات، سير عمل، APIs، وأنظمة قائمة على قواعد البيانات.',
-        d5: 'نقل الخوادم، تغييرات DNS، نقل التطبيقات، تخطيط النسخ الاحتياطي/الاستعادة، ومعالجة الأعطال.',
-        d6: 'حل المشكلات عن بُعد، التحديثات، المراقبة، التوثيق، والدعم المجدول.',
-        packEye: 'باقات المشروع', packTitle: 'ابدأ صغيرًا. وقم بالتوسيع عند الحاجة.', packLead: 'لا توجد باقات غير ضرورية. يتم إعداد العرض النهائي بحسب متطلباتك الفعلية.',
-        p1: 'START', p1d: 'مهمة محددة واحدة: إعداد خادم أو موقع أو نطاق/SSL أو نسخ احتياطي أو دعم فني.', price1: 'سعر حسب النطاق',
-        p2: 'BUSINESS', p2d: 'موقع، استضافة، SSL، دعم النطاقات، تحليلات، وتوثيق أساسي.', price2: 'خطة واضحة أولًا',
-        p3: 'SYSTEM', p3d: 'خادم، خدمات الشبكة، نسخ احتياطي، قاعدة أمن، توثيق، ودعم.', price3: 'حل قائم على المشروع',
-        aboutEye: 'النهج',
-        quote: 'الخدمة التقنية الجيدة لا تعتمد فقط على التكنولوجيا. بل تعتمد على فهم ما يحاول العميل تحقيقه، شرح المقايضات بوضوح، والحفاظ على النظام عمليًا ومستقرًا.',
-        aboutLead: 'أربع لغات. ثقافات اتصال مختلفة. التزام واحد: تقنية مفيدة مع اتصال واضح.',
-        contactEye: 'استفسار المشروع', contactTitle: 'دعنا نجعله ينجح.', contactLead: 'اذكر موقفك الحالي، النتيجة المستهدفة، والفترة المفضلة. سأراجع النطاق وأرد عبر البريد الإلكتروني.',
-        name: 'الاسم', email: 'البريد الإلكتروني', service: 'الخدمة المطلوبة', message: 'المتطلبات', send: 'إرسال الاستفسار',
-        footer: 'البنية التحتية لتقنية المعلومات والويب المستقلة'
-      }
-    };
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    function setLang(lang) {
-      const d = T[lang] || T.en;
-      document.documentElement.lang = lang === 'my' ? 'ms' : lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-      document.querySelectorAll('[data-t]').forEach((el) => {
-        const key = el.dataset.t;
-        if (d[key] !== undefined) el.textContent = d[key];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
       });
+    }, { threshold: 0.15 });
 
-      document.querySelectorAll('.lang').forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
-
-      localStorage.setItem('siteLang', lang);
-    }
-
-    document.querySelectorAll('.lang').forEach((btn) => {
-      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    document.querySelectorAll('.reveal').forEach((el, index) => {
+      el.style.transitionDelay = (index * 80) + 'ms';
+      observer.observe(el);
     });
 
-    setLang(localStorage.getItem('siteLang') || 'en');
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.lang').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
   </script>
 </body>
 </html>
