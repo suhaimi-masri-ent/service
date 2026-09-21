@@ -1,149 +1,840 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Suhaimi IT Infrastructure & Web Services — server, web server, website, web application and managed IT services.">
-<title>Suhaimi — IT Infrastructure & Web Services</title>
-<style>
-:root{
-  --bg:#07111f;--bg2:#0d1b2e;--card:#10243b;--line:#24405d;
-  --text:#eef6ff;--muted:#a9bbcf;--accent:#65d7ff;--accent2:#9ef0c0;
-  --max:1180px;--radius:24px;
-}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(145deg,var(--bg),#09192a 55%,#07111f);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}.wrap{max-width:var(--max);margin:auto;padding:0 24px}
-nav{position:fixed;z-index:50;top:0;left:0;right:0;background:rgba(7,17,31,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
-.navin{height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:.04em}
-.langs{display:flex;gap:6px;flex-wrap:wrap}.lang{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:6px 10px;cursor:pointer}.lang.active,.lang:hover{color:#06101b;background:var(--accent);border-color:var(--accent)}
-section{min-height:100vh;display:flex;align-items:center;padding:105px 0 70px;border-bottom:1px solid rgba(255,255,255,.06)}
-.hero{background:radial-gradient(circle at 80% 20%,rgba(101,215,255,.16),transparent 35%)}
-.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:42px;align-items:center}
-.eyebrow{color:var(--accent2);font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em}
-h1{font-size:clamp(2.8rem,7vw,6.2rem);line-height:.98;margin:14px 0 22px;letter-spacing:-.055em}
-h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;margin:0 0 16px}h3{margin:0 0 8px}
-.lead{font-size:1.15rem;color:var(--muted);max-width:760px}.small{font-size:.9rem;color:var(--muted)}
-.cta{display:inline-flex;gap:10px;align-items:center;margin-top:22px;padding:13px 18px;border-radius:14px;background:var(--accent);color:#06101b;font-weight:800}
-.card{background:linear-gradient(160deg,rgba(16,36,59,.92),rgba(10,27,46,.92));border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.22)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.icon{font-size:1.7rem;margin-bottom:8px}.price{color:var(--accent2);font-weight:800;margin-top:12px}
-.story{display:grid;grid-template-columns:1fr 1fr;gap:20px}.quote{border-left:3px solid var(--accent);padding-left:18px;color:#d9e7f5}
-form{display:grid;gap:13px}label{font-size:.85rem;color:var(--muted)}input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#081728;color:var(--text);font:inherit}textarea{min-height:145px;resize:vertical}.submit{border:0;cursor:pointer;padding:14px;border-radius:13px;background:var(--accent2);color:#06101b;font-weight:900;font-size:1rem}
-footer{padding:28px 0;color:var(--muted);font-size:.85rem}
-[dir="rtl"]{font-family:Tahoma,Arial,sans-serif}[dir="rtl"] .quote{border-left:0;border-right:3px solid var(--accent);padding-left:0;padding-right:18px}
-@media(max-width:850px){.grid,.story{grid-template-columns:1fr}.cards{grid-template-columns:1fr}section{min-height:auto;padding:105px 0 80px}.navin{height:auto;min-height:70px;padding:10px 0}.langs{justify-content:flex-end}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Suhaimi IT Infrastructure & Web Services — server, web server, website, web application and managed IT services.">
+  <title>Suhaimi — IT Infrastructure & Web Services</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg2: #0d1b2e;
+      --panel: rgba(16, 36, 59, 0.92);
+      --panel-2: rgba(10, 27, 46, 0.92);
+      --line: rgba(148, 172, 202, 0.18);
+      --text: #edf6ff;
+      --muted: #a9bbcf;
+      --accent: #65d7ff;
+      --accent-2: #9ef0c0;
+      --warning: #ffd77a;
+      --shadow: rgba(0, 0, 0, 0.25);
+      --max: 1180px;
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(101, 215, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 85% 10%, rgba(158, 240, 192, 0.08), transparent 20%),
+        linear-gradient(145deg, var(--bg), #09192a 58%, #07111f);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      background: rgba(7, 17, 31, 0.78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .navin {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: .04em;
+      font-size: 1.08rem;
+    }
+    .brand .dot { color: var(--accent); }
+
+    .langs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .lang {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      transition: 0.2s ease;
+    }
+    .lang.active,
+    .lang:hover {
+      background: var(--accent);
+      color: #06101b;
+      border-color: transparent;
+      box-shadow: 0 10px 30px rgba(101, 215, 255, 0.26);
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 105px 0 70px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 80% 20%, rgba(101,215,255,.16), transparent 35%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 8% 50% 16% 0;
+      background: linear-gradient(135deg, rgba(101,215,255,.15), transparent 65%);
+      filter: blur(120px);
+      pointer-events: none;
+    }
+
+    .grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 42px; align-items: center; }
+    .story { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .eyebrow {
+      color: var(--accent-2);
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 6.2rem);
+      line-height: .98;
+      margin: 16px 0 22px;
+      letter-spacing: -.055em;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+    h3 { margin: 0 0 8px; }
+
+    .lead { font-size: 1.1rem; color: var(--muted); max-width: 760px; }
+    .small { font-size: .9rem; color: var(--muted); }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), #9de4ff);
+      color: #06101b;
+      font-weight: 800;
+      box-shadow: 0 16px 40px rgba(101,215,255,.22);
+    }
+    .cta.secondary {
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .mini {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .mini strong {
+      display: block;
+      font-size: 1.55rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .mini span { color: var(--muted); font-size: .8rem; }
+
+    .hero-panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(16,36,59,.82), rgba(8,18,30,.85));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.28);
+      overflow: hidden;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -30% -20% auto auto;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(101,215,255,.22), transparent 70%);
+      pointer-events: none;
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(158,240,192,0.18);
+      background: rgba(158,240,192,0.04);
+      color: #d5f7e5;
+      margin-bottom: 14px;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 6px rgba(158,240,192,0.12);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .76rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(160deg, rgba(16,36,59,.92), rgba(10,27,46,.92));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(101,215,255,.08), transparent 35%, rgba(158,240,192,.04));
+      pointer-events: none;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: rgba(101, 215, 255, 0.08);
+      border: 1px solid rgba(101,215,255,0.2);
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      margin-top: 12px;
+      color: var(--accent-2);
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .quote {
+      border-left: 3px solid var(--accent);
+      padding-left: 18px;
+      color: #d9e7f5;
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    form { display: grid; gap: 13px; }
+    label { font-size: .85rem; color: var(--muted); }
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      background: #081728;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font: inherit;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid rgba(101,215,255,.2);
+      border-color: rgba(101,215,255,.4);
+    }
+    button.submit {
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: #081621;
+      font-weight: 800;
+      padding: 14px 16px;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(158,240,192,.12);
+      margin-top: 8px;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    [dir="rtl"] { font-family: Tahoma, Arial, sans-serif; }
+    [dir="rtl"] .quote {
+      border-left: 0;
+      border-right: 3px solid var(--accent);
+      padding-left: 0;
+      padding-right: 18px;
+    }
+
+    @media (max-width: 850px) {
+      .grid, .story { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      section { min-height: auto; padding: 105px 0 80px; }
+      .navin { height: auto; min-height: 70px; padding: 10px 0; }
+      .langs { justify-content: flex-end; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { padding: 0 17px; }
+      .cta-row { display: grid; }
+      .cta.secondary { margin-left: 0; }
+      .mini-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-<nav><div class="wrap navin">
-  <a class="brand" href="#home">SUHAIMI<span style="color:var(--accent)">.</span>IT</a>
-  <div class="langs" aria-label="Language">
-    <button class="lang active" data-lang="en">EN</button><button class="lang" data-lang="ja">JP</button><button class="lang" data-lang="my">MY</button><button class="lang" data-lang="ar">AR</button>
-  </div>
-</div></nav>
+  <nav>
+    <div class="wrap navin">
+      <a class="brand" href="#home">SUHAIMI<span class="dot">.</span>IT</a>
+      <div class="langs" aria-label="Language">
+        <button class="lang active" data-lang="en">EN</button>
+        <button class="lang" data-lang="ja">JP</button>
+        <button class="lang" data-lang="my">MY</button>
+        <button class="lang" data-lang="ar">AR</button>
+      </div>
+    </div>
+  </nav>
 
-<main>
-<section id="home" class="hero"><div class="wrap grid">
-  <div>
-    <div class="eyebrow" data-t="eyebrow">IT Infrastructure • Web • Applications</div>
-    <h1 data-t="heroTitle">Build it. Secure it. Keep it running.</h1>
-    <p class="lead" data-t="heroLead">Practical IT services for small businesses and projects — from server setup and web hosting to websites, web applications, migration and ongoing support.</p>
-    <a class="cta" href="#inquiry" data-t="cta">Start an inquiry →</a>
-  </div>
-  <div class="card">
-    <div class="icon">⌁</div>
-    <h3 data-t="heroCardTitle">One technical partner</h3>
-    <p class="small" data-t="heroCard">Plan → Build → Secure → Document → Support. Clear scope, practical solutions and no unnecessary complexity.</p>
-  </div>
-</div></section>
+  <main>
+    <section id="home" class="hero">
+      <div class="wrap grid">
+        <div>
+          <div class="eyebrow" data-t="eyebrow">IT Infrastructure • Web • Applications</div>
+          <h1 data-t="heroTitle">Build it. Secure it. Keep it running.</h1>
+          <p class="lead" data-t="heroLead">Practical IT services for small businesses and projects — from server setup and web hosting to websites, web applications, migration and ongoing support.</p>
 
-<section id="services"><div class="wrap">
-  <div class="eyebrow" data-t="servicesEyebrow">Services</div><h2 data-t="servicesTitle">Choose what you need.</h2>
-  <p class="lead" data-t="servicesLead">Start with one task or combine several into a complete solution.</p>
-  <div class="cards">
-    <div class="card"><div class="icon">🖥️</div><h3 data-t="s1">Server Build</h3><p class="small" data-t="s1d">Windows/Linux server installation, Active Directory, DNS, DHCP, file services, virtualization and baseline hardening.</p></div>
-    <div class="card"><div class="icon">🌐</div><h3 data-t="s2">Web Server & Hosting</h3><p class="small" data-t="s2d">Nginx/Apache, SSL, domains, reverse proxy, PHP, databases, deployment and backup setup.</p></div>
-    <div class="card"><div class="icon">◫</div><h3 data-t="s3">Website</h3><p class="small" data-t="s3d">Responsive business websites, landing pages, company profiles, multilingual pages and analytics.</p></div>
-    <div class="card"><div class="icon">⚙️</div><h3 data-t="s4">Web Application</h3><p class="small" data-t="s4d">Custom business systems, dashboards, forms, portals, APIs and database-driven applications.</p></div>
-    <div class="card"><div class="icon">🔄</div><h3 data-t="s5">Migration & Recovery</h3><p class="small" data-t="s5d">Server migration, DNS changes, application moves, backup/restore planning and recovery assistance.</p></div>
-    <div class="card"><div class="icon">🛡️</div><h3 data-t="s6">Maintenance & Support</h3><p class="small" data-t="s6d">Remote troubleshooting, patching, monitoring, documentation and scheduled maintenance.</p></div>
-  </div>
-</div></section>
+          <div class="cta-row">
+            <a class="cta" href="#inquiry" data-t="cta">Start an inquiry →</a>
+            <a class="cta secondary" href="#services" data-t="view">Explore services</a>
+          </div>
 
-<section id="packages"><div class="wrap">
-  <div class="eyebrow" data-t="packEyebrow">Packages</div><h2 data-t="packTitle">Simple starting points.</h2>
-  <div class="cards">
-    <div class="card"><h3 data-t="p1">START</h3><p class="small" data-t="p1d">One focused task: server setup, website, domain/SSL, backup or troubleshooting.</p><div class="price" data-t="p1price">Quote by scope</div></div>
-    <div class="card"><h3 data-t="p2">BUSINESS</h3><p class="small" data-t="p2d">Website + hosting + SSL + email/domain guidance + analytics + basic documentation.</p><div class="price" data-t="p2price">Project quotation</div></div>
-    <div class="card"><h3 data-t="p3">SYSTEM</h3><p class="small" data-t="p3d">Server + network services + backup + security baseline + documentation + support.</p><div class="price" data-t="p3price">Project quotation</div></div>
-  </div>
-  <p class="small" style="margin-top:20px" data-t="packNote">Every project is quoted after understanding your actual requirement. No fixed package is forced where a custom scope is more appropriate.</p>
-</div></section>
+          <div class="mini-grid">
+            <div class="mini">
+              <strong>20+</strong>
+              <span data-t="stat1">years IT experience</span>
+            </div>
+            <div class="mini">
+              <strong>4</strong>
+              <span data-t="stat2">languages</span>
+            </div>
+            <div class="mini">
+              <strong>100%</strong>
+              <span data-t="stat3">practical scope</span>
+            </div>
+            <div class="mini">
+              <strong>24/7</strong>
+              <span data-t="stat4">support mindset</span>
+            </div>
+          </div>
+        </div>
 
-<section id="culture"><div class="wrap">
-  <div class="eyebrow" data-t="cultureEyebrow">Four languages, four ways of communicating</div><h2 data-t="cultureTitle">Technology is global. Communication is local.</h2>
-  <div class="story">
-    <div class="card"><h3 data-t="cultureCardTitle">Why this page is multilingual</h3><p class="small" data-t="cultureCard">EN focuses on clarity and direct business communication. JP uses respectful, precise and relationship-conscious wording. MY keeps the message practical, approachable and straightforward. AR uses courteous, trust-oriented language and clear service descriptions.</p></div>
-    <div class="card"><p class="quote" data-t="cultureQuote">Good IT service is not only about technology. It is about understanding what the customer is trying to achieve, explaining the trade-offs clearly, and delivering something that can actually be maintained.</p></div>
-  </div>
-</div></section>
+        <div class="hero-panel">
+          <div class="status-bar">
+            <span style="display:flex; align-items:center; gap:10px;">
+              <span class="status-dot"></span>
+              <span data-t="status1">Project health</span>
+            </span>
+            <strong data-t="status2">Stable</strong>
+          </div>
 
-<section id="inquiry"><div class="wrap grid">
-  <div><div class="eyebrow" data-t="inqEyebrow">Inquiry</div><h2 data-t="inqTitle">Tell me what you need.</h2><p class="lead" data-t="inqLead">Describe the current situation, target result and preferred timeline. I will review the scope and reply by email.</p><p class="small"><strong>Email:</strong> <a href="mailto:bitsuhami@gmail.com">bitsuhami@gmail.com</a></p></div>
-  <div class="card">
-    <form action="mailto:bitsuhami@gmail.com" method="post" enctype="text/plain">
-      <div><label data-t="name">Name</label><input name="name" required></div>
-      <div><label data-t="email">Email</label><input type="email" name="email" required></div>
-      <div><label data-t="service">Service needed</label><select name="service"><option>Server</option><option>Web Server / Hosting</option><option>Website</option><option>Web Application</option><option>Migration / Recovery</option><option>Maintenance / Support</option><option>Other</option></select></div>
-      <div><label data-t="message">Requirement</label><textarea name="message" required></textarea></div>
-      <button class="submit" type="submit" data-t="send">Send inquiry</button>
-    </form>
-    <p class="small" style="margin-bottom:0" data-t="formNote">If your device does not support mailto forms, email the same details directly to bitsuhami@gmail.com.</p>
-  </div>
-</div></section>
-</main>
-<footer><div class="wrap">© <span id="year"></span> Suhaimi IT Services · <span data-t="footer">Independent IT infrastructure & web services.</span></div></footer>
+          <div class="pill" data-t="pill">Independent technical partner</div>
 
-<script>
-const T={
-en:{
-eyebrow:"IT Infrastructure • Web • Applications",heroTitle:"Build it. Secure it. Keep it running.",heroLead:"Practical IT services for small businesses and projects — from server setup and web hosting to websites, web applications, migration and ongoing support.",cta:"Start an inquiry →",heroCardTitle:"One technical partner",heroCard:"Plan → Build → Secure → Document → Support. Clear scope, practical solutions and no unnecessary complexity.",
-servicesEyebrow:"Services",servicesTitle:"Choose what you need.",servicesLead:"Start with one task or combine several into a complete solution.",s1:"Server Build",s1d:"Windows/Linux server installation, Active Directory, DNS, DHCP, file services, virtualization and baseline hardening.",s2:"Web Server & Hosting",s2d:"Nginx/Apache, SSL, domains, reverse proxy, PHP, databases, deployment and backup setup.",s3:"Website",s3d:"Responsive business websites, landing pages, company profiles, multilingual pages and analytics.",s4:"Web Application",s4d:"Custom business systems, dashboards, forms, portals, APIs and database-driven applications.",s5:"Migration & Recovery",s5d:"Server migration, DNS changes, application moves, backup/restore planning and recovery assistance.",s6:"Maintenance & Support",s6d:"Remote troubleshooting, patching, monitoring, documentation and scheduled maintenance.",
-packEyebrow:"Packages",packTitle:"Simple starting points.",p1:"START",p1d:"One focused task: server setup, website, domain/SSL, backup or troubleshooting.",p1price:"Quote by scope",p2:"BUSINESS",p2d:"Website + hosting + SSL + email/domain guidance + analytics + basic documentation.",p2price:"Project quotation",p3:"SYSTEM",p3d:"Server + network services + backup + security baseline + documentation + support.",p3price:"Project quotation",packNote:"Every project is quoted after understanding your actual requirement. No fixed package is forced where a custom scope is more appropriate.",
-cultureEyebrow:"Four languages, four ways of communicating",cultureTitle:"Technology is global. Communication is local.",cultureCardTitle:"Why this page is multilingual",cultureCard:"EN focuses on clarity and direct business communication. JP uses respectful, precise and relationship-conscious wording. MY keeps the message practical, approachable and straightforward. AR uses courteous, trust-oriented language and clear service descriptions.",cultureQuote:"Good IT service is not only about technology. It is about understanding what the customer is trying to achieve, explaining the trade-offs clearly, and delivering something that can actually be maintained.",
-inqEyebrow:"Inquiry",inqTitle:"Tell me what you need.",inqLead:"Describe the current situation, target result and preferred timeline. I will review the scope and reply by email.",name:"Name",email:"Email",service:"Service needed",message:"Requirement",send:"Send inquiry",formNote:"If your device does not support mailto forms, email the same details directly to bitsuhami@gmail.com.",footer:"Independent IT infrastructure & web services."
-},
-ja:{
-eyebrow:"ITインフラ・Web・アプリケーション",heroTitle:"構築する。守る。安定して動かす。",heroLead:"サーバー構築、Webサーバー、Webサイト、Webアプリケーション、移行、運用サポートまで、中小企業や個人事業向けに実務的なITサービスを提供します。",cta:"お問い合わせ →",heroCardTitle:"技術をまとめて相談できるパートナー",heroCard:"計画 → 構築 → セキュリティ → ドキュメント → サポート。必要な範囲を明確にし、無駄に複雑な構成を避けます。",
-servicesEyebrow:"サービス",servicesTitle:"必要なサービスをお選びください。",servicesLead:"一つの作業から、複数を組み合わせたシステム構築まで対応します。",s1:"サーバー構築",s1d:"Windows/Linux、Active Directory、DNS、DHCP、ファイルサーバー、仮想化、基本的なセキュリティ設定。",s2:"Webサーバー・ホスティング",s2d:"Nginx/Apache、SSL、ドメイン、リバースプロキシ、PHP、データベース、公開・バックアップ設定。",s3:"Webサイト制作",s3d:"レスポンシブな企業サイト、ランディングページ、多言語ページ、アクセス解析など。",s4:"Webアプリケーション",s4d:"業務システム、ダッシュボード、フォーム、ポータル、API、データベースを利用したアプリケーション。",s5:"移行・復旧支援",s5d:"サーバー移行、DNS変更、アプリケーション移行、バックアップ・リストア計画、復旧支援。",s6:"保守・サポート",s6d:"リモート障害対応、アップデート、監視、ドキュメント、定期メンテナンス。",
-packEyebrow:"パッケージ",packTitle:"分かりやすい3つの入口。",p1:"START",p1d:"サーバー構築、Webサイト、ドメイン/SSL、バックアップ、トラブル対応など一つの作業から。",p1price:"内容によりお見積り",p2:"BUSINESS",p2d:"Webサイト＋ホスティング＋SSL＋ドメイン/メール相談＋解析＋基本ドキュメント。",p2price:"案件ごとにお見積り",p3:"SYSTEM",p3d:"サーバー＋ネットワーク＋バックアップ＋基本セキュリティ＋ドキュメント＋サポート。",p3price:"案件ごとにお見積り",packNote:"実際の要件を確認した上でお見積りします。必要以上に固定パッケージをおすすめすることはありません。",
-cultureEyebrow:"4言語・4つのコミュニケーション",cultureTitle:"技術は世界共通。伝え方は文化に合わせて。",cultureCardTitle:"多言語ページにしている理由",cultureCard:"ENは明確で直接的なビジネス表現、JPは丁寧さ・正確さ・関係性への配慮、MYは実用的で親しみやすい表現、ARは礼儀と信頼を重視した分かりやすい表現を意識しています。",cultureQuote:"良いITサービスは、技術だけでは成り立ちません。お客様の目的を理解し、選択肢と注意点を分かりやすく説明し、将来も保守できる形で提供することが大切です。",
-inqEyebrow:"お問い合わせ",inqTitle:"ご希望をお聞かせください。",inqLead:"現在の状況、実現したいこと、希望時期をご記入ください。内容を確認し、メールでご返信します。",name:"お名前",email:"メールアドレス",service:"ご希望のサービス",message:"ご相談内容",send:"問い合わせを送信",formNote:"mailtoフォームに対応していない端末では、同じ内容を bitsuhami@gmail.com へ直接お送りください。",footer:"独立系ITインフラ・Webサービス"
-},
-my:{
-eyebrow:"IT Infrastruktur • Web • Aplikasi",heroTitle:"Bina. Lindungi. Pastikan ia terus berjalan.",heroLead:"Servis IT praktikal untuk perniagaan kecil dan projek — daripada bina server dan web hosting hingga website, web application, migrasi dan sokongan berterusan.",cta:"Hantar pertanyaan →",heroCardTitle:"Satu rakan teknikal",heroCard:"Rancang → Bina → Lindungi → Dokumentasi → Sokong. Skop jelas, penyelesaian praktikal dan tanpa kerumitan yang tidak perlu.",
-servicesEyebrow:"Servis",servicesTitle:"Pilih apa yang anda perlukan.",servicesLead:"Mulakan dengan satu kerja atau gabungkan beberapa servis menjadi satu penyelesaian lengkap.",s1:"Bina Server",s1d:"Pemasangan Windows/Linux, Active Directory, DNS, DHCP, file server, virtualisasi dan tetapan keselamatan asas.",s2:"Web Server & Hosting",s2d:"Nginx/Apache, SSL, domain, reverse proxy, PHP, database, deployment dan backup.",s3:"Website",s3d:"Website perniagaan responsif, landing page, profil syarikat, halaman multilingual dan analytics.",s4:"Web Application",s4d:"Sistem perniagaan custom, dashboard, borang, portal, API dan aplikasi berasaskan database.",s5:"Migrasi & Recovery",s5d:"Migrasi server, perubahan DNS, pemindahan aplikasi, perancangan backup/restore dan bantuan recovery.",s6:"Maintenance & Support",s6d:"Troubleshooting remote, patching, monitoring, dokumentasi dan maintenance berjadual.",
-packEyebrow:"Pakej",packTitle:"Pilihan mudah untuk bermula.",p1:"START",p1d:"Satu tugasan khusus: bina server, website, domain/SSL, backup atau troubleshooting.",p1price:"Sebutharga ikut skop",p2:"BUSINESS",p2d:"Website + hosting + SSL + panduan email/domain + analytics + dokumentasi asas.",p2price:"Sebutharga projek",p3:"SYSTEM",p3d:"Server + network services + backup + keselamatan asas + dokumentasi + support.",p3price:"Sebutharga projek",packNote:"Setiap projek akan diberi harga selepas keperluan sebenar difahami. Pakej tetap tidak dipaksa jika skop custom lebih sesuai.",
-cultureEyebrow:"Empat bahasa, empat cara berkomunikasi",cultureTitle:"Teknologi global. Cara berkomunikasi ikut budaya.",cultureCardTitle:"Kenapa halaman ini multilingual",cultureCard:"EN menekankan komunikasi perniagaan yang jelas dan terus. JP menggunakan bahasa yang sopan, tepat dan peka kepada hubungan. MY mengekalkan gaya praktikal, mesra dan mudah difahami. AR menggunakan bahasa yang sopan, berorientasikan kepercayaan dan jelas.",cultureQuote:"Servis IT yang baik bukan sekadar teknologi. Ia bermula dengan memahami matlamat pelanggan, menerangkan pilihan dan kompromi dengan jelas, serta menghasilkan sistem yang boleh diselenggara.",
-inqEyebrow:"Pertanyaan",inqTitle:"Beritahu apa yang anda perlukan.",inqLead:"Terangkan keadaan semasa, hasil yang anda mahukan dan tempoh yang diingini. Saya akan semak skop dan membalas melalui email.",name:"Nama",email:"Email",service:"Servis diperlukan",message:"Keperluan",send:"Hantar pertanyaan",formNote:"Jika peranti anda tidak menyokong borang mailto, hantar butiran yang sama terus ke bitsuhami@gmail.com.",footer:"Servis IT infrastruktur & Web secara bebas"
-},
-ar:{
-eyebrow:"البنية التحتية لتقنية المعلومات • الويب • التطبيقات",heroTitle:"نبني. نحمي. ونحافظ على استمرارية التشغيل.",heroLead:"خدمات تقنية عملية للشركات الصغيرة والمشاريع، من إعداد الخوادم والاستضافة إلى المواقع وتطبيقات الويب والترحيل والدعم المستمر.",cta:"ابدأ الاستفسار ←",heroCardTitle:"شريك تقني واحد",heroCard:"التخطيط ← البناء ← الحماية ← التوثيق ← الدعم. نطاق واضح وحلول عملية دون تعقيد غير ضروري.",
-servicesEyebrow:"الخدمات",servicesTitle:"اختر ما تحتاج إليه.",servicesLead:"يمكن البدء بمهمة واحدة أو جمع عدة خدمات في حل متكامل.",s1:"إعداد الخوادم",s1d:"تثبيت Windows/Linux وActive Directory وDNS وDHCP وخدمات الملفات والافتراضية وإعدادات الحماية الأساسية.",s2:"خادم الويب والاستضافة",s2d:"Nginx/Apache وSSL والنطاقات وReverse Proxy وPHP وقواعد البيانات والنشر والنسخ الاحتياطي.",s3:"المواقع الإلكترونية",s3d:"مواقع أعمال متجاوبة وصفحات هبوط وصفحات شركات ومواقع متعددة اللغات وتحليلات الزيارات.",s4:"تطبيقات الويب",s4d:"أنظمة أعمال مخصصة ولوحات تحكم ونماذج وبوابات وواجهات API وتطبيقات تعتمد على قواعد البيانات.",s5:"الترحيل والاستعادة",s5d:"ترحيل الخوادم وتغييرات DNS ونقل التطبيقات والتخطيط للنسخ والاستعادة والمساعدة في التعافي.",s6:"الصيانة والدعم",s6d:"استكشاف الأعطال عن بعد والتحديثات والمراقبة والتوثيق والصيانة المجدولة.",
-packEyebrow:"الباقات",packTitle:"نقاط بداية بسيطة.",p1:"START",p1d:"مهمة واحدة محددة: إعداد خادم أو موقع أو نطاق/SSL أو نسخ احتياطي أو معالجة مشكلة.",p1price:"عرض سعر حسب النطاق",p2:"BUSINESS",p2d:"موقع + استضافة + SSL + إرشاد للنطاق والبريد + تحليلات + توثيق أساسي.",p2price:"عرض سعر للمشروع",p3:"SYSTEM",p3d:"خادم + خدمات شبكة + نسخ احتياطي + حماية أساسية + توثيق + دعم.",p3price:"عرض سعر للمشروع",packNote:"يتم تحديد السعر بعد فهم المتطلبات الفعلية. لا نفرض باقة ثابتة عندما يكون الحل المخصص أنسب.",
-cultureEyebrow:"أربع لغات، وأربع طرق للتواصل",cultureTitle:"التقنية عالمية، والتواصل محلي.",cultureCardTitle:"لماذا هذه الصفحة متعددة اللغات؟",cultureCard:"الإنجليزية تركز على الوضوح والمباشرة في التواصل التجاري. اليابانية تستخدم لغة دقيقة ومحترمة تراعي العلاقة. الملايوية عملية ومباشرة وسهلة الفهم. العربية تستخدم أسلوباً مهذباً يركز على الثقة ووضوح وصف الخدمة.",cultureQuote:"الخدمة التقنية الجيدة ليست مجرد تقنية؛ بل تبدأ بفهم هدف العميل، وشرح الخيارات والمقايضات بوضوح، وتقديم حل يمكن صيانته فعلياً.",
-inqEyebrow:"استفسار",inqTitle:"أخبرني بما تحتاج إليه.",inqLead:"اذكر الوضع الحالي والنتيجة المطلوبة والمدة المفضلة. سأراجع النطاق وأرد عليك عبر البريد الإلكتروني.",name:"الاسم",email:"البريد الإلكتروني",service:"الخدمة المطلوبة",message:"المتطلبات",send:"إرسال الاستفسار",formNote:"إذا كان جهازك لا يدعم نماذج mailto، أرسل التفاصيل نفسها مباشرة إلى bitsuhami@gmail.com.",footer:"خدمات مستقلة للبنية التحتية لتقنية المعلومات والويب"
-}};
-function setLang(lang){
- const d=T[lang]; document.documentElement.lang=lang==="my"?"ms":lang; document.documentElement.dir=lang==="ar"?"rtl":"ltr";
- document.querySelectorAll("[data-t]").forEach(e=>{let k=e.dataset.t;if(d[k]!==undefined)e.textContent=d[k]});
- document.querySelectorAll(".lang").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
- localStorage.setItem("siteLang",lang);
-}
-document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
-setLang(localStorage.getItem("siteLang")||"en");
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
+          <div class="card" style="padding: 18px; background: rgba(7,16,29,0.85);">
+            <div class="small" style="margin-bottom: 12px; color: var(--accent-2);" data-t="panelTitle">Delivery flow</div>
+            <div style="display:grid; gap:10px;">
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:10px;">
+                <span class="small" data-t="flow1">1. Assess</span>
+                <span class="small" style="color: var(--accent);">✓</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:10px;">
+                <span class="small" data-t="flow2">2. Scope</span>
+                <span class="small" style="color: var(--accent);">✓</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:10px;">
+                <span class="small" data-t="flow3">3. Build</span>
+                <span class="small" style="color: var(--warning);">•</span>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span class="small" data-t="flow4">4. Support</span>
+                <span class="small" style="color: var(--accent-2);">↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="eyebrow" data-t="servicesEyebrow">Services</div>
+        <h2 data-t="servicesTitle">Choose what you need.</h2>
+        <p class="lead" data-t="servicesLead">Start with one task or combine several into a complete solution.</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">🖥️</div>
+            <h3 data-t="s1">Server Build</h3>
+            <p class="small" data-t="s1d">Windows/Linux server installation, Active Directory, DNS, DHCP, file services, virtualization and hardening.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌐</div>
+            <h3 data-t="s2">Web Server & Hosting</h3>
+            <p class="small" data-t="s2d">Nginx/Apache, SSL, domains, reverse proxy, PHP, databases, deployment and backend setup.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◫</div>
+            <h3 data-t="s3">Website</h3>
+            <p class="small" data-t="s3d">Responsive business websites, landing pages, company profiles, multilingual pages and analytics setup.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⚙️</div>
+            <h3 data-t="s4">Web Application</h3>
+            <p class="small" data-t="s4d">Custom business systems, dashboards, forms, portals, APIs and database-driven workflows.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🔄</div>
+            <h3 data-t="s5">Migration & Recovery</h3>
+            <p class="small" data-t="s5d">Server migration, DNS changes, application moves, backup/restore planning and troubleshooting.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🛡️</div>
+            <h3 data-t="s6">Maintenance & Support</h3>
+            <p class="small" data-t="s6d">Remote troubleshooting, patching, monitoring, documentation and scheduled technical support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="wrap">
+        <div class="eyebrow" data-t="packEyebrow">Packages</div>
+        <h2 data-t="packTitle">Simple starting points.</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3 data-t="p1">START</h3>
+            <p class="small" data-t="p1d">One focused task: server setup, website, domain/SSL, backup or troubleshooting.</p>
+            <div class="price" data-t="p1price">Quote by scope</div>
+          </div>
+          <div class="card" style="border-color: rgba(101,215,255,0.35); box-shadow: 0 20px 60px rgba(101,215,255,.08);">
+            <h3 data-t="p2">BUSINESS</h3>
+            <p class="small" data-t="p2d">Website + hosting + SSL + email/domain guidance + analytics + basic documentation.</p>
+            <div class="price" data-t="p2price">Starts with a clear plan</div>
+          </div>
+          <div class="card">
+            <h3 data-t="p3">SYSTEM</h3>
+            <p class="small" data-t="p3d">Server + network services + backup + security baseline + documentation + support.</p>
+            <div class="price" data-t="p3price">Project-based solution</div>
+          </div>
+        </div>
+
+        <p class="small" style="margin-top:20px" data-t="packNote">Every project is quoted after understanding your actual requirement. No fixed package is forced where a custom scope is more appropriate.</p>
+      </div>
+    </section>
+
+    <section id="culture">
+      <div class="wrap">
+        <div class="eyebrow" data-t="cultureEyebrow">Four languages, four ways of communicating</div>
+        <h2 data-t="cultureTitle">Technology is global. Communication is local.</h2>
+        <div class="story">
+          <div class="card">
+            <h3 data-t="cultureCardTitle">Why this page is multilingual</h3>
+            <p class="small" data-t="cultureCard">EN focuses on clarity and direct business communication. JP uses respect and process awareness. MY values practical and human explanation. AR supports regionally appropriate communication and trust-building.</p>
+          </div>
+          <div class="card">
+            <p class="quote" data-t="cultureQuote">Good IT service is not only about technology. It is about understanding what the customer is trying to achieve, explaining the trade-offs clearly and keeping the system practical and stable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inquiry">
+      <div class="wrap grid">
+        <div>
+          <div class="eyebrow" data-t="inqEyebrow">Inquiry</div>
+          <h2 data-t="inqTitle">Tell me what you need.</h2>
+          <p class="lead" data-t="inqLead">Describe the current situation, target result and preferred timeline. I will review the scope and reply by email.</p>
+
+          <div class="card" style="margin-top:22px;">
+            <div class="small" style="color: var(--accent-2); margin-bottom: 8px;" data-t="direct">Direct email</div>
+            <a href="mailto:bitsuhami@gmail.com" style="color: var(--accent); font-weight: 700;">bitsuhami@gmail.com</a>
+            <p class="small" data-t="emailNote">If the form is not convenient, send a brief summary directly by email.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <form action="mailto:bitsuhami@gmail.com" method="post" enctype="text/plain">
+            <div>
+              <label data-t="name">Name</label>
+              <input name="name" required>
+            </div>
+            <div>
+              <label data-t="email">Email</label>
+              <input type="email" name="email" required>
+            </div>
+            <div>
+              <label data-t="service">Service needed</label>
+              <select name="service">
+                <option>Server</option>
+                <option>Web Server / Hosting</option>
+                <option>Website</option>
+                <option>Web Application</option>
+                <option>Migration / Recovery</option>
+                <option>Maintenance & Support</option>
+              </select>
+            </div>
+            <div>
+              <label data-t="message">Requirement</label>
+              <textarea name="message" rows="5" required></textarea>
+            </div>
+            <button class="submit" type="submit" data-t="send">Send inquiry</button>
+          </form>
+          <p class="small" style="margin: 12px 0 0;" data-t="formNote">If your device does not support mailto forms, email the same details directly to bitsuhami@gmail.com.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Suhaimi IT Services · <span data-t="footer">Independent IT infrastructure & web services.</span></div>
+  </footer>
+
+  <script>
+    const T = {
+      en: {
+        eyebrow: 'IT Infrastructure • Web • Applications',
+        heroTitle: 'Build it. Secure it. Keep it running.',
+        heroLead: 'Practical IT services for small businesses and projects — from server setup and web hosting to websites, web applications, migration and ongoing support.',
+        cta: 'Start an inquiry →',
+        view: 'Explore services',
+        stat1: 'years IT experience',
+        stat2: 'languages',
+        stat3: 'practical scope',
+        stat4: 'support mindset',
+        status1: 'Project health',
+        status2: 'Stable',
+        pill: 'Independent technical partner',
+        panelTitle: 'Delivery flow',
+        flow1: '1. Assess',
+        flow2: '2. Scope',
+        flow3: '3. Build',
+        flow4: '4. Support',
+        servicesEyebrow: 'Services',
+        servicesTitle: 'Choose what you need.',
+        servicesLead: 'Start with one task or combine several into a complete solution.',
+        s1: 'Server Build',
+        s1d: 'Windows/Linux server installation, Active Directory, DNS, DHCP, file services, virtualization and hardening.',
+        s2: 'Web Server & Hosting',
+        s2d: 'Nginx/Apache, SSL, domains, reverse proxy, PHP, databases, deployment and backend setup.',
+        s3: 'Website',
+        s3d: 'Responsive business websites, landing pages, company profiles, multilingual pages and analytics setup.',
+        s4: 'Web Application',
+        s4d: 'Custom business systems, dashboards, forms, portals, APIs and database-driven workflows.',
+        s5: 'Migration & Recovery',
+        s5d: 'Server migration, DNS changes, application moves, backup/restore planning and troubleshooting.',
+        s6: 'Maintenance & Support',
+        s6d: 'Remote troubleshooting, patching, monitoring, documentation and scheduled technical support.',
+        packEyebrow: 'Packages',
+        packTitle: 'Simple starting points.',
+        p1: 'START',
+        p1d: 'One focused task: server setup, website, domain/SSL, backup or troubleshooting.',
+        p1price: 'Quote by scope',
+        p2: 'BUSINESS',
+        p2d: 'Website + hosting + SSL + email/domain guidance + analytics + basic documentation.',
+        p2price: 'Starts with a clear plan',
+        p3: 'SYSTEM',
+        p3d: 'Server + network services + backup + security baseline + documentation + support.',
+        p3price: 'Project-based solution',
+        packNote: 'Every project is quoted after understanding your actual requirement. No fixed package is forced where a custom scope is more appropriate.',
+        cultureEyebrow: 'Four languages, four ways of communicating',
+        cultureTitle: 'Technology is global. Communication is local.',
+        cultureCardTitle: 'Why this page is multilingual',
+        cultureCard: 'EN focuses on clarity and direct business communication. JP uses respect and process awareness. MY values practical and human explanation. AR supports regionally appropriate communication and trust-building.',
+        cultureQuote: 'Good IT service is not only about technology. It is about understanding what the customer is trying to achieve, explaining the trade-offs clearly and keeping the system practical and stable.',
+        inqEyebrow: 'Inquiry',
+        inqTitle: 'Tell me what you need.',
+        inqLead: 'Describe the current situation, target result and preferred timeline. I will review the scope and reply by email.',
+        direct: 'Direct email',
+        emailNote: 'If the form is not convenient, send a brief summary directly by email.',
+        name: 'Name',
+        email: 'Email',
+        service: 'Service needed',
+        message: 'Requirement',
+        send: 'Send inquiry',
+        formNote: 'If your device does not support mailto forms, email the same details directly to bitsuhami@gmail.com.',
+        footer: 'Independent IT infrastructure & web services.'
+      },
+      ja: {
+        eyebrow: 'ITインフラ・Web・アプリケーション',
+        heroTitle: '構築する。守る。安定して動かす。',
+        heroLead: '中小企業やプロジェクト向けの実用的なITサービス。サーバー構築、Webサーバー、Webサイト、Webアプリ、移行、継続的なサポートまで対応します。',
+        cta: 'お問い合わせを開始 →',
+        view: 'サービスを見る',
+        stat1: '年のIT経験',
+        stat2: '言語',
+        stat3: '実務に強い範囲',
+        stat4: 'サポート姿勢',
+        status1: 'プロジェクト状況',
+        status2: '安定',
+        pill: '独立系技術パートナー',
+        panelTitle: '進行フロー',
+        flow1: '1. 調査',
+        flow2: '2. 範囲確認',
+        flow3: '3. 構築',
+        flow4: '4. サポート',
+        servicesEyebrow: 'サービス',
+        servicesTitle: '必要なものを選んでください。',
+        servicesLead: '1つの作業から、複数を組み合わせた完成形まで対応します。',
+        s1: 'サーバー構築',
+        s1d: 'Windows/Linuxサーバー構築、Active Directory、DNS、DHCP、ファイルサービス、仮想化、セキュリティ強化。',
+        s2: 'Webサーバー・ホスティング',
+        s2d: 'Nginx/Apache、SSL、ドメイン、リバースプロキシ、PHP、データベース、デプロイ、バックエンド構成。',
+        s3: 'Webサイト',
+        s3d: 'レスポンシブな企業サイト、ランディングページ、会社紹介、マルチリンガル対応、分析導入。',
+        s4: 'Webアプリ',
+        s4d: '業務向けシステム、ダッシュボード、フォーム、ポータル、API、データベース連携ワークフロー。',
+        s5: '移行・復旧',
+        s5d: 'サーバー移行、DNS変更、アプリケーション移動、バックアップ/復元計画、障害対応。',
+        s6: '保守・サポート',
+        s6d: 'リモート障害対応、パッチ適用、監視、ドキュメント整備、定期的な技術サポート。',
+        packEyebrow: 'パッケージ',
+        packTitle: '分かりやすい3つの入口。',
+        p1: 'START',
+        p1d: '1つの作業から始めます。サーバー構築、Webサイト、ドメイン/SSL、バックアップ、トラブル対応。',
+        p1price: '範囲に応じて見積',
+        p2: 'BUSINESS',
+        p2d: 'Webサイト + ホスティング + SSL + メール/ドメイン支援 + 分析 + 基本ドキュメント。',
+        p2price: '明確な計画から開始',
+        p3: 'SYSTEM',
+        p3d: 'サーバー + ネットワーク構成 + バックアップ + セキュリティ基盤 + ドキュメント + サポート。',
+        p3price: 'プロジェクト型ソリューション',
+        packNote: '依頼内容を確認したうえで見積を作成します。必要に応じてカスタム範囲を提案します。',
+        cultureEyebrow: '4言語・4つのコミュニケーション',
+        cultureTitle: '技術は世界共通。伝え方は文化に合わせて。',
+        cultureCardTitle: '多言語ページにしている理由',
+        cultureCard: 'ENは明確でビジネス向きの説明を重視します。JPは丁寧さと進め方の明確さを大切にします。MYは現実的で人間的な説明を好みます。ARは地域に適した伝え方と信頼関係を重視します。',
+        cultureQuote: '良いITサービスは技術だけではありません。顧客が何を達成したいのかを理解し、選択肢を分かりやすく伝え、システムを現実的かつ安定的に保つことです。',
+        inqEyebrow: 'お問い合わせ',
+        inqTitle: 'ご希望をお聞かせください。',
+        inqLead: '現在の状況、目標、希望時期をお知らせください。内容を確認し、メールでご返信します。',
+        direct: '直接メール',
+        emailNote: 'フォームが不便な場合は、簡単な要点をメールでご連絡ください。',
+        name: 'お名前',
+        email: 'メールアドレス',
+        service: '必要なサービス',
+        message: '要件',
+        send: 'お問い合わせを送信',
+        formNote: 'mailtoフォームが使えない場合は、同じ内容を bitsuhami@gmail.com へ直接メールしてください。',
+        footer: '独立系ITインフラ・Webサービス。'
+      },
+      my: {
+        eyebrow: 'IT Infrastruktur • Web • Aplikasi',
+        heroTitle: 'Bina. Lindungi. Pastikan ia terus berjalan.',
+        heroLead: 'Servis IT praktikal untuk perniagaan kecil dan projek — daripada bina server dan hosting web hingga website, aplikasi web, migrasi dan sokongan berterusan.',
+        cta: 'Mulakan pertanyaan →',
+        view: 'Lihat servis',
+        stat1: 'tahun pengalaman IT',
+        stat2: 'bahasa',
+        stat3: 'skop praktikal',
+        stat4: 'cara sokong',
+        status1: 'Kesihatan projek',
+        status2: 'Stabil',
+        pill: 'Rakan teknikal bebas',
+        panelTitle: 'Aliran kerja',
+        flow1: '1. Kaji',
+        flow2: '2. Skop',
+        flow3: '3. Bina',
+        flow4: '4. Sokong',
+        servicesEyebrow: 'Servis',
+        servicesTitle: 'Pilih apa yang anda perlukan.',
+        servicesLead: 'Mulakan dengan satu tugasan atau gabungkan beberapa servis menjadi satu penyelesaian lengkap.',
+        s1: 'Bina Server',
+        s1d: 'Pemasangan server Windows/Linux, Active Directory, DNS, DHCP, perkhidmatan fail, virtualisasi dan pengukuhan keselamatan.',
+        s2: 'Web Server & Hosting',
+        s2d: 'Nginx/Apache, SSL, domain, reverse proxy, PHP, pangkalan data, deployment dan pemasangan backend.',
+        s3: 'Website',
+        s3d: 'Website perniagaan responsif, landing page, profil syarikat, halaman berbilang bahasa dan persediaan analitik.',
+        s4: 'Aplikasi Web',
+        s4d: 'Sistem perniagaan khas, dashboard, borang, portal, API dan aliran kerja berasaskan pangkalan data.',
+        s5: 'Migrasi & Pemulihan',
+        s5d: 'Migrasi server, perubahan DNS, pemindahan aplikasi, perancangan backup/restore dan troubleshooting.',
+        s6: 'Penyelenggaraan & Sokongan',
+        s6d: 'Penyelesaian masalah jauh, patching, pemantauan, dokumentasi dan sokongan teknikal berjadual.',
+        packEyebrow: 'Pakej',
+        packTitle: 'Penyelesaian mudah untuk bermula.',
+        p1: 'START',
+        p1d: 'Satu tugas fokus: bina server, website, domain/SSL, backup atau troubleshooting.',
+        p1price: 'Sebutharga ikut skop',
+        p2: 'BUSINESS',
+        p2d: 'Website + hosting + SSL + panduan email/domain + analitik + dokumentasi asas.',
+        p2price: 'Bermula dengan rancangan jelas',
+        p3: 'SYSTEM',
+        p3d: 'Server + perkhidmatan rangkaian + backup + dasar keselamatan + dokumentasi + sokongan.',
+        p3price: 'Penyelesaian berasaskan projek',
+        packNote: 'Setiap projek diberikan senarai harga selepas memahami keperluan sebenar anda. Tiada pakej tetap dipaksa jika skop khas lebih sesuai.',
+        cultureEyebrow: 'Empat bahasa, empat cara berkomunikasi',
+        cultureTitle: 'Teknologi global. Cara berkomunikasi ikut budaya.',
+        cultureCardTitle: 'Kenapa halaman ini multilingual',
+        cultureCard: 'EN menekankan kejelasan dan komunikasi perniagaan yang terus terang. JP menghargai rasa hormat dan proses yang tersusun. MY lebih menghargai penerangan yang praktikal dan manusiawi. AR memberi tumpuan kepada komunikasi yang sesuai dengan konteks dan membina kepercayaan.',
+        cultureQuote: 'Perkhidmatan IT yang baik bukan hanya mengenai teknologi. Ia tentang memahami apa yang pelanggan cuba capai, menerangkan pertukaran keputusan dengan jelas, dan memastikan sistem itu praktikal serta stabil.',
+        inqEyebrow: 'Pertanyaan',
+        inqTitle: 'Beritahu apa yang anda perlukan.',
+        inqLead: 'Terangkan keadaan semasa, hasil yang anda mahukan dan tempoh yang diingini. Saya akan semak skop dan membalas melalui e-mel.',
+        direct: 'E-mel terus',
+        emailNote: 'Jika borang tidak mudah, hantar ringkasan ringkas terus melalui e-mel.',
+        name: 'Nama',
+        email: 'E-mel',
+        service: 'Perkhidmatan yang diperlukan',
+        message: 'Keperluan',
+        send: 'Hantar pertanyaan',
+        formNote: 'Jika peranti anda tidak menyokong borang mailto, e-melkan butiran yang sama terus ke bitsuhami@gmail.com.',
+        footer: 'Perkhidmatan infrastruktur IT & web bebas.'
+      },
+      ar: {
+        eyebrow: 'البنية التحتية لتقنية المعلومات • الويب • التطبيقات',
+        heroTitle: 'نبني. نحمي. ونحافظ على استمرارية التشغيل.',
+        heroLead: 'خدمات تقنية عملية للشركات الصغيرة والمشروعات — من إعداد الخوادم واستضافة الويب إلى المواقع الإلكترونية والتطبيقات، والنقل، والدعم المستمر.',
+        cta: 'ابدأ الاستفسار →',
+        view: 'استعرض الخدمات',
+        stat1: 'سنوات خبرة في التقنية',
+        stat2: 'لغات',
+        stat3: 'نطاق عملي',
+        stat4: 'أسلوب دعم',
+        status1: 'حالة المشروع',
+        status2: 'مستقر',
+        pill: 'شريك تقني مستقل',
+        panelTitle: 'تدفق التنفيذ',
+        flow1: '1. التقييم',
+        flow2: '2. النطاق',
+        flow3: '3. البناء',
+        flow4: '4. الدعم',
+        servicesEyebrow: 'الخدمات',
+        servicesTitle: 'اختر ما تحتاج إليه.',
+        servicesLead: 'ابدأ بمهمة واحدة أو اجمع عدة خدمات في حل متكامل.',
+        s1: 'بناء الخادم',
+        s1d: 'تثبيت خوادم Windows/Linux، Active Directory، DNS، DHCP، خدمات الملفات، المحاكاة، وتعزيز الأمان.',
+        s2: 'خادم الويب والاستضافة',
+        s2d: 'Nginx/Apache، SSL، النطاقات، proxy العكسي، PHP، قواعد البيانات، النشر، وإعداد الخلفية.',
+        s3: 'الموقع الإلكتروني',
+        s3d: 'مواقع أعمال متجاوبة، صفحات هبوط، ملفات الشركة، صفحات متعددة اللغات، وإعداد التحليلات.',
+        s4: 'تطبيق الويب',
+        s4d: 'أنظمة مخصصة للأعمال، لوحات معلومات، نماذج، بوابات، APIs، وسير عمل يعتمد على قواعد البيانات.',
+        s5: 'النقل والاستعادة',
+        s5d: 'نقل الخوادم، تغييرات DNS، نقل التطبيقات، تخطيط النسخ الاحتياطي/الاستعادة، ومعالجة الأعطال.',
+        s6: 'الصيانة والدعم',
+        s6d: 'حل المشكلات عن بُعد، التحديثات، المراقبة، التوثيق، والدعم الفني المجدول.',
+        packEyebrow: 'الباقات',
+        packTitle: 'نقاط بداية بسيطة.',
+        p1: 'START',
+        p1d: 'مهمة واحدة محددة: إعداد خادم أو موقع أو نطاق/SSL أو نسخ احتياطي أو دعم فني.',
+        p1price: 'سعر حسب النطاق',
+        p2: 'BUSINESS',
+        p2d: 'موقع + استضافة + SSL + دعم البريد/النطاق + تحليلات + توثيق أساسي.',
+        p2price: 'يبدأ بخطة واضحة',
+        p3: 'SYSTEM',
+        p3d: 'خادم + خدمات الشبكة + نسخ احتياطي + قاعدة أمن + توثيق + دعم.',
+        p3price: 'حل على أساس المشروع',
+        packNote: 'يتم تقديم عرض سعر لكل مشروع بعد فهم المتطلبات الفعلية. لا يُفرض أي باقة ثابتة إذا كان النطاق المخصص أكثر ملاءمة.',
+        cultureEyebrow: 'أربع لغات، وأربع طرق للتواصل',
+        cultureTitle: 'التقنية عالمية، والتواصل محلي.',
+        cultureCardTitle: 'لماذا هذه الصفحة متعددة اللغات',
+        cultureCard: 'EN يركز على الوضوح والتواصل التجاري المباشر. JP يبرز الاحترام ووضوح المسار. MY يقدّر الشرح العملي والبشري. AR يركز على التواصل المناسب من حيث السياق وبناء الثقة.',
+        cultureQuote: 'الخدمة التقنية الجيدة لا تعتمد فقط على التكنولوجيا. بل تعتمد على فهم ما يحاول العميل تحقيقه، شرح المقايضات بوضوح، والحفاظ على النظام عمليًا ومستقرًا.',
+        inqEyebrow: 'استفسار',
+        inqTitle: 'أخبرني بما تحتاج إليه.',
+        inqLead: 'اذكر الوضع الحالي والنتيجة المطلوبة والمدة المفضلة. سأراجع النطاق وأرد عبر البريد الإلكتروني.',
+        direct: 'البريد المباشر',
+        emailNote: 'إذا كان النموذج غير مناسب، أرسل ملخصًا موجزًا مباشرة عبر البريد الإلكتروني.',
+        name: 'الاسم',
+        email: 'البريد الإلكتروني',
+        service: 'الخدمة المطلوبة',
+        message: 'المتطلبات',
+        send: 'إرسال الاستفسار',
+        formNote: 'إذا لم يدعم جهازك نموذج mailto، أرسل التفاصيل نفسها مباشرة إلى bitsuhami@gmail.com.',
+        footer: 'خدمات البنية التحتية التقنية والويب المستقلة.'
+      }
+    };
+
+    function setLang(lang) {
+      const d = T[lang];
+      document.documentElement.lang = lang === 'my' ? 'ms' : lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('[data-t]').forEach((el) => {
+        const key = el.dataset.t;
+        if (d[key] !== undefined) el.textContent = d[key];
+      });
+
+      document.querySelectorAll('.lang').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      localStorage.setItem('siteLang', lang);
+    }
+
+    document.querySelectorAll('.lang').forEach((btn) => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    setLang(localStorage.getItem('siteLang') || 'en');
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
